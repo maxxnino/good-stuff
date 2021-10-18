@@ -9,6 +9,10 @@ $env:VISUAL = "nvim"
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineOption -PredictionSource History
+
+# TODO: enable with pwsh 7.2
+#Set-PSReadLineOption -PredictionSource HistoryAndPlugin 
+
 Set-PSReadLineOption -PredictionViewStyle ListView
 
 #change curso in insert/normal mode
@@ -25,6 +29,9 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $function:OnVi
 
 Set-PSReadLineKeyHandler -Key Ctrl+j -Function NextHistory
 Set-PSReadLineKeyHandler -Key Ctrl+k -Function PreviousHistory
+
+#vulkan validation layer
+$env:VK_LAYER_PATH= "$(scoop prefix vulkan)/bin"
 
 
 
