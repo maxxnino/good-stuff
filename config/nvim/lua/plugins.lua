@@ -47,6 +47,16 @@ return {
 		event = "BufWinEnter",
 	},
 
+    {
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require("lualine").setup({
+                options = {theme = 'horizon'},
+                extensions = {'nvim-tree'}
+            })
+        end,
+    },
+
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
