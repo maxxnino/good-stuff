@@ -2,7 +2,11 @@ return {
 	{ "lewis6991/impatient.nvim" },
 	{ "wbthomason/packer.nvim" },
 	{ "neovim/nvim-lspconfig" },
-	-- { "jose-elias-alvarez/null-ls.nvim" },
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = require("null_ls"),
+		event = "BufReadPost",
+	},
 	{ "williamboman/nvim-lsp-installer" },
 
 	{
@@ -19,6 +23,9 @@ return {
 		end,
 		cmd = { "Telescope" },
 	},
+	{
+		"LunarVim/Colorschemes",
+	},
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -27,11 +34,11 @@ return {
 	},
 	{
 		"terrortylor/nvim-comment",
-        config = function()
-            require('nvim_comment').setup({
-                comment_empty = false,
-            })
-        end,
+		config = function()
+			require("nvim_comment").setup({
+				comment_empty = false,
+			})
+		end,
 		event = "BufReadPost",
 	},
 
@@ -44,18 +51,22 @@ return {
 	},
 	{
 		"romgrk/barbar.nvim",
-		event = "BufWinEnter",
+		event = "BufReadPost",
 	},
-
-    {
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("lualine").setup({
-                options = {theme = 'horizon'},
-                extensions = {'nvim-tree'}
-            })
-        end,
-    },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = require("indent"),
+		event = "BufReadPost",
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = { theme = "ayu_mirage", disabled_filetypes = { "gitcommit" } },
+				extensions = { "nvim-tree" },
+			})
+		end,
+	},
 
 	-- cmp
 	{
@@ -86,8 +97,8 @@ return {
 			})
 		end,
 	},
-    {
-        "ThePrimeagen/harpoon",
-        event = "BufReadPost",
-    },
+	{
+		"ThePrimeagen/harpoon",
+		event = "BufReadPost",
+	},
 }

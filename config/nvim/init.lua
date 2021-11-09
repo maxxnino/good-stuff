@@ -5,11 +5,11 @@ CONFIG = fn.stdpath("config")
 CACHE = fn.stdpath("cache")
 
 pcall(require, "impatient")
+require("setting")()
 local loader = require("plugin_loader")
 local plugins = require("plugins")
 loader.init(plugins)
 
-vim.cmd("colorscheme onedarker")
-require("setting")()
 require("lsp")()
 require("keymapping")()
+vim.cmd("colorscheme darkplus")

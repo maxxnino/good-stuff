@@ -1,10 +1,10 @@
 local M = {}
 
-
 function M.setup()
 	local actions = require("telescope.actions")
-
+	local previewers = require("telescope.previewers")
 	local telescope = require("telescope")
+	local sorters = require("telescope.sorters")
 	telescope.setup({
 		defaults = {
 			prompt_prefix = " ",
@@ -52,6 +52,11 @@ function M.setup()
 			border = {},
 			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			color_devicons = true,
+			file_previewer = previewers.vim_buffer_cat.new,
+			grep_previewer = previewers.vim_buffer_vimgrep.new,
+			qflist_previewer = previewers.vim_buffer_qflist.new,
+			file_sorter = sorters.get_fuzzy_file,
+			generic_sorter = sorters.get_generic_fuzzy_sorter,
 			set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 			pickers = {
 				find_files = {

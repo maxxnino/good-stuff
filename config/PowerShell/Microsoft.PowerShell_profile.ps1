@@ -1,8 +1,8 @@
 # set power shell theme
-oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh3)/themes.original/amro.omp.json" | Invoke-Expression
+oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh3)/themes.original/huvix.omp.json" | Invoke-Expression
 
 #lunar vim alias
-Set-Alias -Name v -Value "lvim.ps1"
+Set-Alias -Name v -Value "nvim"
 
 # vim mode
 $env:VISUAL = "nvim"
@@ -32,6 +32,10 @@ Set-PSReadLineKeyHandler -Key Ctrl+k -Function PreviousHistory
 
 #vulkan validation layer
 $env:VK_LAYER_PATH= "$(scoop prefix vulkan)/bin"
+
+#zig build self-hosted compiler
+Set-Alias -Name zb -Value "zig-dev-build.ps1"
+
 
 
 
