@@ -18,7 +18,7 @@ return function()
 			["<C-k>"] = "<C-w>k",
 			["<C-l>"] = "<C-w>l",
 
-			-- Tab switch buffer
+			-- switch/close buffer
 			["<S-l>"] = ":BufferNext<CR>",
 			["<S-h>"] = ":BufferPrevious<CR>",
 			["<Space>c"] = ":BufferClose<CR>",
@@ -28,6 +28,13 @@ return function()
 			["<A-j>"] = ":m .+1<CR>==",
 			["<A-k>"] = ":m .-2<CR>==",
 
+            -- clear HL search
+            ["<Space>ch"] = ":nohlsearch<CR>",
+
+            -- Write and quit
+            ["<Space>w"] = ":w<CR>",
+
+            --Telescope
 			["<Space>e"] = ":NvimTreeToggle<CR>",
 			["<Space>sf"] = ":Telescope find_files<CR>",
 			["<Space>st"] = ":Telescope live_grep<CR>",
