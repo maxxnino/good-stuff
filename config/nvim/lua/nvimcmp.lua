@@ -8,7 +8,7 @@ return function()
 		},
 		completion = {
 			---@usage The minimum length of a word to complete on.
-			keyword_length = 1,
+			keyword_length = 0,
 		},
 		experimental = {
 			ghost_text = true,
@@ -44,20 +44,22 @@ return function()
 				Variable = " ",
 			},
 			source_names = {
-				nvim_lsp = "(LSP)",
-				emoji = "(Emoji)",
-				path = "(Path)",
-				calc = "(Calc)",
-				cmp_tabnine = "(Tabnine)",
-				vsnip = "(Snippet)",
-				-- luasnip = "(Snippet)",
 				buffer = "(Buffer)",
+				nvim_lsp = "(LSP)",
+				luasnip = "(Snip)",
+				treesitter = "",
+				nvim_lua = "(NvLua)",
+				spell = "暈",
+				emoji = "",
+				path = "",
+				calc = "",
+				cmp_tabnine = "ﮧ",
 			},
 			duplicates = {
 				buffer = 1,
 				path = 1,
 				nvim_lsp = 0,
-				-- luasnip = 1,
+				luasnip = 1,
 			},
 			duplicates_default = 0,
 			format = function(entry, vim_item)
@@ -76,12 +78,12 @@ return function()
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		},
 		sources = {
+			{ name = "cmp_tabnine", max_item_count = 3 },
 			{ name = "nvim_lsp" },
-			{ name = "path" },
-			{ name = "luasnip" },
-			{ name = "cmp_tabnine" },
+			{ name = "buffer", max_item_count = 5, keyword_length = 5 },
+			{ name = "path", max_item_count = 5 },
+			{ name = "luasnip", max_item_count = 3 },
 			{ name = "nvim_lua" },
-			{ name = "buffer", keyword_length = 4 },
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "treesitter" },
@@ -94,4 +96,5 @@ return function()
 	}
 	-- require("luasnip/loaders/from_vscode").lazy_load()
 	require("cmp").setup(UXI.cmp)
+
 end

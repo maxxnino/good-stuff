@@ -18,11 +18,12 @@ local function install_server(lsp_installer_servers, server_name, opts)
 end
 
 return function()
-	local servers = { "zls", "sumneko_lua"}
+	local servers = { "zls", "sumneko_lua" }
 	local lsp_installer_servers = require("nvim-lsp-installer.servers")
 	for _, v in pairs(servers) do
 		-- print(v)
 		install_server(lsp_installer_servers, v, config())
 	end
+	-- require("lspconfig").maxx.setup(config())
 	-- install_server(lsp_installer_servers, "zls", {})
 end

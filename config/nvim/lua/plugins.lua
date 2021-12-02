@@ -30,7 +30,6 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = require("treesitter"),
-		-- run = ":TSUpdate",
 	},
 	{
 		"terrortylor/nvim-comment",
@@ -71,10 +70,20 @@ return {
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
-		config = require("nvimcmp"),
+		after = "cmp-nvim-lsp",
+		config = function ()
+            require("nvimcmp")()
+		    require("lsp")()
+        end,
 	},
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-nvim-lsp" },
+	{
+		"hrsh7th/cmp-buffer",
+		after = "nvim-cmp",
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		event = "InsertEnter",
+	},
 
 	-- autopairs
 	{
@@ -87,15 +96,7 @@ return {
 
 	{
 		"nathom/filetype.nvim",
-		config = function()
-			require("filetype").setup({
-				overrides = {
-					literal = {
-						[".gitignore"] = "conf",
-					},
-				},
-			})
-		end,
+		config = require("file_type"),
 	},
 	{
 		"ThePrimeagen/harpoon",

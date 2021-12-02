@@ -1,21 +1,11 @@
 return function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
-			-- "jsonc",
-			-- "query",
-			-- "toml",
-			-- "svelte",
-			-- "html",
-			-- "go",
-			-- "javascript",
-			"lua",
-			"python",
-			-- "typescript",
-			-- "c",
-			-- "cpp",
-			-- "css",
-			-- "scss",
-			--    "yaml",
+			"jsonc", "query", "toml", "svelte", "html", "go", "javascript", "lua", "python", "typescript", "c",
+			"cpp",
+			"css",
+			"scss",
+			   "yaml",
 			"zig",
 		}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 		highlight = {

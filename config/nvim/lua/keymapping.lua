@@ -51,6 +51,9 @@ return function()
 			["<Space>h"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 			["<Space>j"] = ":lua require('harpoon.ui').nav_file(1)<CR>",
 			["<Space>k"] = ":lua require('harpoon.ui').nav_file(2)<CR>",
+			-- copy/paste
+			["<Space>yy"] = "\"yyy",
+			["<Space>pp"] = "\"yp",
 		},
 
 		---@usage change or add keymappings for terminal mode
@@ -61,6 +64,8 @@ return function()
 			-- Better indenting
 			["<"] = "<gv",
 			[">"] = ">gv",
+			["<Space>yy"] = "\"yy",
+			["<Space>pp"] = "\"yp",
 		},
 
 		---@usage change or add keymappings for visual block mode

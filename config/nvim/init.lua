@@ -9,7 +9,5 @@ require("setting")()
 local loader = require("plugin_loader")
 local plugins = require("plugins")
 loader.init(plugins)
-
-require("lsp")()
 require("keymapping")()
 vim.cmd("colorscheme darkplus")
