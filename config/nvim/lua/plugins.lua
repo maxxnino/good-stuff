@@ -71,10 +71,10 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		after = "cmp-nvim-lsp",
-		config = function ()
-            require("nvimcmp")()
-		    require("lsp")()
-        end,
+		config = function()
+			require("nvimcmp")()
+			require("lsp")()
+		end,
 	},
 	{
 		"hrsh7th/cmp-buffer",
@@ -82,7 +82,7 @@ return {
 	},
 	{
 		"hrsh7th/cmp-nvim-lsp",
-		event = "InsertEnter",
+		event = "BufReadPost",
 	},
 
 	-- autopairs

@@ -20,9 +20,12 @@ end
 return function()
 	local servers = { "zls", "sumneko_lua" }
 	local lsp_installer_servers = require("nvim-lsp-installer.servers")
+	local cmp_lsp = require("cmp_nvim_lsp")
 	for _, v in pairs(servers) do
-		-- print(v)
-		install_server(lsp_installer_servers, v, config())
+		install_server(lsp_installer_servers, v, {
+			capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		})
+		-- install_server(lsp_installer_servers, v, {})
 	end
 	-- require("lspconfig").maxx.setup(config())
 	-- install_server(lsp_installer_servers, "zls", {})

@@ -80,7 +80,7 @@ return function()
 		sources = {
 			{ name = "cmp_tabnine", max_item_count = 3 },
 			{ name = "nvim_lsp" },
-			{ name = "buffer", max_item_count = 5, keyword_length = 5 },
+			{ name = "buffer", max_item_count = 5, keyword_length = 2 },
 			{ name = "path", max_item_count = 5 },
 			{ name = "luasnip", max_item_count = 3 },
 			{ name = "nvim_lua" },
@@ -95,6 +95,6 @@ return function()
 		},
 	}
 	-- require("luasnip/loaders/from_vscode").lazy_load()
-	require("cmp").setup(UXI.cmp)
+	cmp.setup(UXI.cmp)
 
 end
