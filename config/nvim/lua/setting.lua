@@ -75,6 +75,7 @@ return function()
 		swapfile = false, -- creates a swapfile
 		termguicolors = true, -- set term gui colors (most terminals support this)
 		timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds)
+		mouse = "a",
 		undodir = CACHE .. "/undo", -- set an undo directory
 		undofile = true, -- enable persistent undo
 		updatetime = 500, -- faster completion

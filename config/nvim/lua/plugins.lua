@@ -1,13 +1,19 @@
 return {
 	{ "lewis6991/impatient.nvim" },
 	{ "wbthomason/packer.nvim" },
-	{ "neovim/nvim-lspconfig" },
+	{
+		"neovim/nvim-lspconfig",
+		event = "BufReadPost",
+		requires = {
+			{ "williamboman/nvim-lsp-installer" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+		},
+	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		config = require("null_ls"),
 		event = "BufReadPost",
 	},
-	{ "williamboman/nvim-lsp-installer" },
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -15,7 +21,7 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-				run = "make",
+				run = "zig cc src/fzf.c -O3 -Wall -Werror -fpic -shared src/fzf.c -o build/libfzf.dll",
 			},
 		},
 		config = function()
@@ -23,9 +29,7 @@ return {
 		end,
 		cmd = { "Telescope" },
 	},
-	{
-		"LunarVim/Colorschemes",
-	},
+	{ "LunarVim/Colorschemes" },
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -70,7 +74,7 @@ return {
 	-- cmp
 	{
 		"hrsh7th/nvim-cmp",
-		after = "cmp-nvim-lsp",
+		after = "nvim-lspconfig",
 		config = function()
 			require("nvimcmp")()
 			require("lsp")()
@@ -79,10 +83,6 @@ return {
 	{
 		"hrsh7th/cmp-buffer",
 		after = "nvim-cmp",
-	},
-	{
-		"hrsh7th/cmp-nvim-lsp",
-		event = "BufReadPost",
 	},
 
 	-- autopairs
@@ -93,13 +93,21 @@ return {
 			require("nvim-autopairs").setup({})
 		end,
 	},
-
 	{
 		"nathom/filetype.nvim",
 		config = require("file_type"),
 	},
 	{
-		"ThePrimeagen/harpoon",
+		"AckslD/nvim-neoclip.lua",
 		event = "BufReadPost",
+		config = require("neo_clip"),
 	},
+	{
+		"nvim-telescope/telescope-project.nvim",
+		opt = true,
+	},
+	-- {
+	-- 	"ThePrimeagen/harpoon",
+	-- 	event = "BufReadPost",
+	-- },
 }
