@@ -1,6 +1,6 @@
 return function()
 	require("neoclip").setup({
-        default_register = '+',
+		default_register = "+",
 		keys = {
 			i = {
 				select = "<cr>",
@@ -16,5 +16,4 @@ return function()
 			},
 		},
 	})
-    require('telescope').load_extension('neoclip')
 end

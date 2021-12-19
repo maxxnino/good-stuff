@@ -92,6 +92,7 @@ return function()
 		spelllang = "en",
 		scrolloff = 8, -- is one of my fav
 		sidescrolloff = 8,
+		fileformats = "unix",
 	}
 
 	---  SETTINGS  ---

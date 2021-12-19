@@ -6,7 +6,7 @@ return function()
 			["<A-a>"] = "<C-o>A",
 			["<C-e>"] = "<C-o>de",
 			["<C-h>"] = "<C-o>b",
-			["<C-l>"] = "<C-o>w",
+			["<C-l>"] = "<C-o>lw",
 			["<C-s>"] = "<cmd>lua vim.lsp.buf.signature_help()<cr>",
 		},
 
@@ -28,16 +28,18 @@ return function()
 			["<A-j>"] = ":m .+1<CR>==",
 			["<A-k>"] = ":m .-2<CR>==",
 
-            -- clear HL search
-            ["<Space>ch"] = ":nohlsearch<CR>",
+			-- clear HL search
+			["<Space>h"] = ":nohlsearch<CR>",
 
-            -- Write and quit
-            ["<Space>w"] = ":w<CR>",
+			-- Write and quit
+			["<Space>w"] = ":w<CR>",
 
-            --Telescope
+			--Telescope
 			["<Space>e"] = ":NvimTreeToggle<CR>",
 			["<Space>sf"] = ":Telescope find_files<CR>",
 			["<Space>st"] = ":Telescope live_grep<CR>",
+			["<Space>sc"] = ":Telescope neoclip<CR>",
+			["<Space>sp"] = ":lua require'telescope'.extensions.project.project{}<CR>",
 
 			-- Lsp
 			["<Space>lr"] = ":Telescope lsp_references<CR>",
@@ -46,14 +48,16 @@ return function()
 			["K"] = ":lua vim.lsp.buf.hover()<CR>",
 			["gd"] = ":lua vim.lsp.buf.definition()<CR>",
 
-			-- harpoon
-			["<Space>m"] = ":lua require('harpoon.mark').add_file()<CR>",
-			["<Space>h"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-			["<Space>j"] = ":lua require('harpoon.ui').nav_file(1)<CR>",
-			["<Space>k"] = ":lua require('harpoon.ui').nav_file(2)<CR>",
-			-- copy/paste
-			["<Space>yy"] = "\"yyy",
-			["<Space>pp"] = "\"yp",
+			-- Surround selection with anything
+			['<Space>"'] = [[ciw"<c-r>""<esc>]],
+			["<Space>'"] = [[ciw'<c-r>"'<esc>]],
+			["<Space>."] = [[ciw.{<c-r>"}<esc>]],
+			["<Space>["] = [[ciw[<c-r>"]<esc>]],
+			["<Space>{"] = [[ciw{<c-r>"}<esc>]],
+			["<Space>("] = [[ciw(<c-r>")<esc>]],
+
+			--Glow markdown preview
+			["<Space>md"] = ":Glow<CR><C-w>z<C-w>|<C-w>_",
 		},
 
 		---@usage change or add keymappings for terminal mode
@@ -64,8 +68,14 @@ return function()
 			-- Better indenting
 			["<"] = "<gv",
 			[">"] = ">gv",
-			["<Space>yy"] = "\"yy",
-			["<Space>pp"] = "\"yp",
+
+			-- Surround selection with anything
+			['<Space>"'] = [[c"<c-r>""<esc>]],
+			["<Space>'"] = [[c'<c-r>"'<esc>]],
+			["<Space>."] = [[c.{<c-r>"}<esc>]],
+			["<Space>["] = [[c[<c-r>"]<esc>]],
+			["<Space>{"] = [[c{<c-r>"}<esc>]],
+			["<Space>("] = [[c(<c-r>")<esc>]],
 		},
 
 		---@usage change or add keymappings for visual block mode

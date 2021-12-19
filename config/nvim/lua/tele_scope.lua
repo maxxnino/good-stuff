@@ -28,22 +28,6 @@ function M.setup()
 				"--smart-case",
 				"--hidden",
 			},
-			mappings = {
-				i = {
-					["<C-n>"] = actions.move_selection_next,
-					["<C-p>"] = actions.move_selection_previous,
-					["<C-c>"] = actions.close,
-					["<C-j>"] = actions.cycle_history_next,
-					["<C-k>"] = actions.cycle_history_prev,
-					-- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-					["<CR>"] = actions.select_default + actions.center,
-				},
-				n = {
-					["<C-n>"] = actions.move_selection_next,
-					["<C-p>"] = actions.move_selection_previous,
-					-- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
-				},
-			},
 			file_ignore_patterns = {},
 			path_display = { shorten = 5 },
 			winblend = 0,
@@ -72,6 +56,7 @@ function M.setup()
 	})
 
 	telescope.load_extension("fzf")
+	telescope.load_extension("neoclip")
 end
 
 return M

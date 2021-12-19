@@ -23,6 +23,13 @@ return {
 				"nvim-telescope/telescope-fzf-native.nvim",
 				run = "zig cc src/fzf.c -O3 -Wall -Werror -fpic -shared src/fzf.c -o build/libfzf.dll",
 			},
+			{
+				"AckslD/nvim-neoclip.lua",
+				config = require("neo_clip"),
+			},
+			{
+				"nvim-telescope/telescope-project.nvim",
+			},
 		},
 		config = function()
 			require("tele_scope").setup()
@@ -98,16 +105,11 @@ return {
 		config = require("file_type"),
 	},
 	{
-		"AckslD/nvim-neoclip.lua",
-		event = "BufReadPost",
-		config = require("neo_clip"),
+		"akinsho/toggleterm.nvim",
+		config = require("terminal"),
 	},
-	{
-		"nvim-telescope/telescope-project.nvim",
-		opt = true,
-	},
-	-- {
-	-- 	"ThePrimeagen/harpoon",
-	-- 	event = "BufReadPost",
-	-- },
+    {
+        "ellisonleao/glow.nvim",
+        cmd = "Glow",
+    }
 }
