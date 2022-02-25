@@ -1,10 +1,6 @@
 return function()
 	local cmp = require("cmp")
 	UXI.cmp = {
-		confirm_opts = {
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		},
 		completion = {
 			---@usage The minimum length of a word to complete on.
 			keyword_length = 0,
@@ -79,8 +75,8 @@ return function()
 		sources = {
 			{ name = "cmp_tabnine", max_item_count = 3 },
 			{ name = "nvim_lsp" },
-			{ name = "buffer", max_item_count = 5, keyword_length = 2 },
-			{ name = "path", max_item_count = 5 },
+			{ name = "buffer", max_item_count = 3 },
+			{ name = "path", max_item_count = 3 },
 			{ name = "luasnip", max_item_count = 3 },
 			{ name = "nvim_lua" },
 			{ name = "calc" },
@@ -90,7 +86,10 @@ return function()
 		mapping = {
 			["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 			["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-			["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+			["<C-y>"] = cmp.mapping.confirm({
+				behavior = cmp.ConfirmBehavior.Insert,
+				select = true,
+			}), -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 			["<C-e>"] = cmp.mapping({
 				i = cmp.mapping.abort(),
 				c = cmp.mapping.close(),

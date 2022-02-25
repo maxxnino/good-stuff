@@ -1,13 +1,13 @@
 return {
 	{ "lewis6991/impatient.nvim" },
 	{ "wbthomason/packer.nvim" },
+
+	{ "williamboman/nvim-lsp-installer" },
+	{ "hrsh7th/cmp-nvim-lsp" },
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPost",
-		requires = {
-			{ "williamboman/nvim-lsp-installer" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-		},
+		event = "BufRead",
+		config = require("lsp"),
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -70,25 +70,26 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup({
-				options = { theme = "ayu_mirage", disabled_filetypes = { "gitcommit" } },
-				extensions = { "nvim-tree" },
-			})
-		end,
+		config = require("lua_line"),
 	},
 
 	-- cmp
 	{
+		"L3MON4D3/LuaSnip",
+		config = require("lua_snip"),
+	},
+
+	{
 		"hrsh7th/nvim-cmp",
 		after = "nvim-lspconfig",
-		config = function()
-			require("nvimcmp")()
-			require("lsp")()
-		end,
+		config = require("nvimcmp"),
 	},
 	{
 		"hrsh7th/cmp-buffer",
+		after = "nvim-cmp",
+	},
+	{
+		"saadparwaiz1/cmp_luasnip",
 		after = "nvim-cmp",
 	},
 
@@ -108,8 +109,8 @@ return {
 		"akinsho/toggleterm.nvim",
 		config = require("terminal"),
 	},
-    {
-        "ellisonleao/glow.nvim",
-        cmd = "Glow",
-    }
+	{
+		"ellisonleao/glow.nvim",
+		cmd = "Glow",
+	},
 }
