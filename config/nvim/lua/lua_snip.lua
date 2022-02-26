@@ -46,28 +46,31 @@ return function()
 			ls.parser.parse_snippet("unr", "unreachable"),
 			ls.parser.parse_snippet("und", "undefined"),
 			ls.parser.parse_snippet("con", "continue"),
+			ls.parser.parse_snippet("opa", "*const anyopaque"),
+			ls.parser.parse_snippet("any", "anytype"),
 			ls.parser.parse_snippet("log", '${1:std.log.info}("${2:message}", .{${3:value}});'),
+			ls.parser.parse_snippet("ass", '${1:std.debug.assert}(${2:true});'),
 
-			ls.parser.parse_snippet("for", "for (${1:items}) |${2:value}| {\n\t${3:body;};\n}"),
+			ls.parser.parse_snippet("for", "for (${1:items}) |${2:value}| {\n\t${3:body};\n}"),
 			ls.parser.parse_snippet("swi", "switch (${1:item}) {\n\t.${2:value} => ${3:value},\n}"),
 
 			s(
 				"fn",
-				fmta("<1>fn <2>(<3>) <4> {\n\t<5>\n}", {
+				fmta("<1>fn <2>(<3>) <4> {\n\t<5>;\n}", {
 					c(1, { t("pub "), t("") }),
 					i(2, "fnName"),
 					i(3, "args: Type"),
-					i(4, "ReturnType"),
-					i(5, "body;"),
+					i(4, "void"),
+					i(5, "body"),
 				})
 			),
 
 			s(
 				"while",
-				fmta("while (<1>) <2>{\n\t<3>\n}", {
+				fmta("while (<1>) <2>{\n\t<3>;\n}", {
 					i(1, "true"),
 					c(2, { t(""), sn(nil, fmta(": (<1>) ", { i(1, "next") })) }),
-					i(3, "body;"),
+					i(3, "body"),
 				})
 			),
 
