@@ -1,7 +1,7 @@
 # set power shell theme
-oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh3)/themes.original/huvix.omp.json" | Invoke-Expression
+oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)/themes.original/huvix.omp.json" | Invoke-Expression
 
-#lunar vim alias
+# neovim alias
 Set-Alias -Name v -Value "nvim"
 
 # vim mode
@@ -14,5 +14,5 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineKeyHandler -Key Ctrl+n -Function NextHistory
 Set-PSReadLineKeyHandler -Key Ctrl+p -Function PreviousHistory
 
-#vulkan validation layer
+# vulkan validation layer
 $env:VK_LAYER_PATH= "$(scoop prefix vulkan)/bin"
