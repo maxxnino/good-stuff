@@ -1,8 +1,4 @@
 return function()
-	local function copy(args)
-		return args[1]
-	end
-
 	local ls = require("luasnip")
 	-- local types = require("luasnip.util.types")
 	--

@@ -14,7 +14,7 @@ return function()
 
 	--Telescope
 	vim.keymap.set({ "n" }, "<Space>e", ":NvimTreeToggle<cr>", generic_opts_any)
-	vim.keymap.set({ "n" }, "<Space>sf", ":Telescope file_files<cr>", generic_opts_any)
+	vim.keymap.set({ "n" }, "<Space>sf", ":Telescope find_files<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>st", ":Telescope live_grep<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>sc", ":Telescope neoclip<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>sp", ":lua require'telescope'.extensions.project.project{}<cr>", generic_opts_any)

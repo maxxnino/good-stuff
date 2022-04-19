@@ -1,11 +1,21 @@
 return function()
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
-			"jsonc", "query", "toml", "svelte", "html", "go", "javascript", "lua", "python", "typescript", "c",
+			"jsonc",
+			"query",
+			"toml",
+			"svelte",
+			"html",
+			"go",
+			"javascript",
+			"lua",
+			"python",
+			"typescript",
+			"c",
 			"cpp",
 			"css",
 			"scss",
-			   "yaml",
+			"yaml",
 			"zig",
 		}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 		highlight = {
@@ -14,7 +24,7 @@ return function()
 		},
 		context_commentstring = {
 			enable = true,
-            enable_autocmd = false,
+			enable_autocmd = false,
 			config = {
 				-- Languages that have a single comment style
 				typescript = "// %s",
@@ -28,7 +38,7 @@ return function()
 			},
 		},
 		playground = {
-			enable = false,
+			enable = true,
 			disable = {},
 			updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
 			persist_queries = false, -- Whether the query persists across vim sessions

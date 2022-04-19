@@ -92,46 +92,46 @@ return function()
 			theme = "ayu_mirage",
 			icons_enabled = true,
 			-- component_separators = { left = "", right = "" },
-			section_separators = { left = "", right = "" },
-			disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+			-- section_separators = { left = "", right = "" },
+			-- disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		},
-		sections = {
-			lualine_a = {
-				"mode",
-			},
-			lualine_b = {
-				"branch",
-				"filename",
-			},
-			lualine_c = {
-				"diff",
-			},
-			lualine_x = {
-				"nvim_diagnostics",
-				"nvim_lsp",
-				components.treesitter,
-				"encoding",
-				"fileformat",
-				"filetype",
-			},
-			lualine_y = {
-				components.spaces,
-			},
-			lualine_z = {
-				components.scrollbar,
-			},
-		},
-		inactive_sections = {
-			lualine_a = {
-				"filename",
-			},
-			lualine_b = {},
-			lualine_c = {},
-			lualine_x = {},
-			lualine_y = {},
-			lualine_z = {},
-		},
-		tabline = {},
-		extensions = { "nvim-tree" },
-	})
+	-- 	sections = {
+	-- 		lualine_a = {
+	-- 			"mode",
+	-- 		},
+	-- 		lualine_b = {
+	-- 			"branch",
+	-- 			"filename",
+	-- 		},
+	-- 		lualine_c = {
+	-- 			"diff",
+	-- 		},
+	-- 		lualine_x = {
+	-- 			"nvim_diagnostics",
+	-- 			"nvim_lsp",
+	-- 			components.treesitter,
+	-- 			"encoding",
+	-- 			"fileformat",
+	-- 			"filetype",
+	-- 		},
+	-- 		lualine_y = {
+	-- 			components.spaces,
+	-- 		},
+	-- 		lualine_z = {
+	-- 			components.scrollbar,
+	-- 		},
+	-- 	},
+	-- 	inactive_sections = {
+	-- 		lualine_a = {
+	-- 			"filename",
+	-- 		},
+	-- 		lualine_b = {},
+	-- 		lualine_c = {},
+	-- 		lualine_x = {},
+	-- 		lualine_y = {},
+	-- 		lualine_z = {},
+	-- 	},
+	-- 	tabline = {},
+	-- 	extensions = { "nvim-tree" },
+})
 end

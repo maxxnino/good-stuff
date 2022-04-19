@@ -42,6 +42,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		config = require("treesitter"),
 	},
+    {"nvim-treesitter/playground"},
 	{
 		"terrortylor/nvim-comment",
 		config = function()

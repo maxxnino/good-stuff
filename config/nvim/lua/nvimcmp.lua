@@ -7,7 +7,9 @@ return function()
 		},
 		experimental = {
 			ghost_text = true,
-			native_menu = false,
+		},
+		view = {
+			entries = "native", -- can be "custom", "wildmenu" or "native"
 		},
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
@@ -39,16 +41,14 @@ return function()
 				Variable = " ",
 			},
 			source_names = {
-				buffer = "(Buffer)",
 				nvim_lsp = "(LSP)",
-				luasnip = "(Snip)",
-				treesitter = "",
-				nvim_lua = "(NvLua)",
-				spell = "暈",
-				emoji = "",
-				path = "",
-				calc = "",
-				cmp_tabnine = "ﮧ",
+				emoji = "(Emoji)",
+				path = "(Path)",
+				calc = "(Calc)",
+				cmp_tabnine = "(Tabnine)",
+				vsnip = "(Snippet)",
+				luasnip = "(Snippet)",
+				buffer = "(Buffer)",
 			},
 			duplicates = {
 				buffer = 1,
@@ -69,11 +69,11 @@ return function()
 				luasnip.lsp_expand(args.body)
 			end,
 		},
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
 		},
 		sources = {
-			{ name = "cmp_tabnine", max_item_count = 3 },
 			{ name = "nvim_lsp" },
 			{ name = "buffer", max_item_count = 3 },
 			{ name = "path", max_item_count = 3 },
