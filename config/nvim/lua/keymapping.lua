@@ -1,5 +1,12 @@
 return function()
 	local generic_opts_any = { noremap = true, silent = true }
+    -- better copy and paste
+	vim.keymap.set({ "x" }, "<Space>p", "\"_dP", generic_opts_any)
+	vim.keymap.set({ "n" }, "<Space>y", "\"+y", generic_opts_any)
+	vim.keymap.set({ "s" }, "<Space>y", "\"+y", generic_opts_any)
+	vim.keymap.set({ "n" }, "<Space>Y", "\"+Y", {noremap = false, silent = true})
+	vim.keymap.set({ "n" }, "<Space>d", "\"_d", generic_opts_any)
+	vim.keymap.set({ "s" }, "<Space>d", "\"_d", generic_opts_any)
 
 	vim.keymap.set({ "i" }, "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", generic_opts_any)
 
@@ -13,11 +20,9 @@ return function()
 	vim.keymap.set({ "n" }, "<Space>w", ":w<cr>", generic_opts_any)
 
 	--Telescope
-	vim.keymap.set({ "n" }, "<Space>e", ":NvimTreeToggle<cr>", generic_opts_any)
+	vim.keymap.set({ "n" }, "<Space>e",  ":NvimTreeToggle<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>sf", ":Telescope find_files<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>st", ":Telescope live_grep<cr>", generic_opts_any)
-	vim.keymap.set({ "n" }, "<Space>sc", ":Telescope neoclip<cr>", generic_opts_any)
-	vim.keymap.set({ "n" }, "<Space>sp", ":lua require'telescope'.extensions.project.project{}<cr>", generic_opts_any)
 
 	-- Lsp
 	vim.keymap.set({ "n" }, "<Space>lr", ":Telescope lsp_references<cr>", generic_opts_any)
@@ -52,7 +57,7 @@ return function()
 	-- Move current line / block with Alt-j/k a la vscode.
 	-- vim.keymap.set({ "n" }, "<A-j>", ":m .+1<cr>==", generic_opts_any)
 	-- vim.keymap.set({ "n" }, "<A-k>", ":m .-2<cr>==", generic_opts_any)
-    --
+	--
 	-- Better indenting
 	vim.keymap.set({ "s" }, "<", "<gv", generic_opts_any)
 	vim.keymap.set({ "s" }, ">", ">gv", generic_opts_any)

@@ -2,47 +2,32 @@ return {
 	{ "lewis6991/impatient.nvim" },
 	{ "wbthomason/packer.nvim" },
 
-	{ "williamboman/nvim-lsp-installer" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{
-		"neovim/nvim-lspconfig",
-		event = "BufRead",
-		config = require("lsp"),
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = require("null_ls"),
-		event = "BufReadPost",
-	},
+    { "williamboman/mason.nvim" },
+    { "jose-elias-alvarez/null-ls.nvim", },
+    { "hrsh7th/cmp-nvim-lsp" },
+    {
+        "neovim/nvim-lspconfig",
+        config = require("lsp")
+    },
 
 	{
 		"nvim-telescope/telescope.nvim",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				run = "zig cc src/fzf.c -O3 -Wall -Werror -fpic -shared src/fzf.c -o build/libfzf.dll",
-			},
-			{
-				"AckslD/nvim-neoclip.lua",
-				config = require("neo_clip"),
-			},
-			{
-				"nvim-telescope/telescope-project.nvim",
-			},
-		},
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        },
 		config = function()
 			require("tele_scope").setup()
 		end,
 		cmd = { "Telescope" },
 	},
+
 	{ "LunarVim/Colorschemes" },
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		config = require("treesitter"),
 	},
-    {"nvim-treesitter/playground"},
 	{
 		"terrortylor/nvim-comment",
 		config = function()
@@ -57,7 +42,7 @@ return {
 	{ "kyazdani42/nvim-web-devicons" },
 	{
 		"kyazdani42/nvim-tree.lua",
-		config = require("nvimtree"),
+		config = function() require("nvim-tree").setup{} end,
 		cmd = { "NvimTreeOpen", "NvimTreeToggle" },
 	},
 	{
@@ -66,7 +51,8 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		config = require("indent"),
+		config = function() require("indent_blankline").setup{} end
+,
 		event = "BufReadPost",
 	},
 	{
@@ -82,36 +68,29 @@ return {
 
 	{
 		"hrsh7th/nvim-cmp",
-		after = "nvim-lspconfig",
 		config = require("nvimcmp"),
 	},
 	{
 		"hrsh7th/cmp-buffer",
-		after = "nvim-cmp",
 	},
 	{
 		"saadparwaiz1/cmp_luasnip",
-		after = "nvim-cmp",
 	},
 
-	-- autopairs
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
-	},
-	{
-		"nathom/filetype.nvim",
-		config = require("file_type"),
-	},
-	{
-		"akinsho/toggleterm.nvim",
-		config = require("terminal"),
-	},
-	{
-		"ellisonleao/glow.nvim",
-		cmd = "Glow",
-	},
+    -- autopairs
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup({})
+        end,
+    },
+    {
+        "nathom/filetype.nvim",
+        config = require("file_type"),
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        config = function () require("toggleterm").setup{ open_mapping = [[<c-t>]] } end
+    },
 }

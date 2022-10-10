@@ -27,14 +27,6 @@ return function()
 		lsp = {
 			function()
 				local buf_clients = vim.lsp.buf_get_clients()
-				-- if next(buf_clients) == nil then
-				-- 	-- TODO: clean up this if statement
-				-- 	if type(msg) == "boolean" or #msg == 0 then
-				-- 		return "LS Inactive"
-				-- 	end
-				-- 	return msg
-				-- end
-
 				local buf_ft = vim.bo.filetype
 				local buf_client_names = {}
 
@@ -91,47 +83,6 @@ return function()
 		options = {
 			theme = "ayu_mirage",
 			icons_enabled = true,
-			-- component_separators = { left = "", right = "" },
-			-- section_separators = { left = "", right = "" },
-			-- disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
 		},
-	-- 	sections = {
-	-- 		lualine_a = {
-	-- 			"mode",
-	-- 		},
-	-- 		lualine_b = {
-	-- 			"branch",
-	-- 			"filename",
-	-- 		},
-	-- 		lualine_c = {
-	-- 			"diff",
-	-- 		},
-	-- 		lualine_x = {
-	-- 			"nvim_diagnostics",
-	-- 			"nvim_lsp",
-	-- 			components.treesitter,
-	-- 			"encoding",
-	-- 			"fileformat",
-	-- 			"filetype",
-	-- 		},
-	-- 		lualine_y = {
-	-- 			components.spaces,
-	-- 		},
-	-- 		lualine_z = {
-	-- 			components.scrollbar,
-	-- 		},
-	-- 	},
-	-- 	inactive_sections = {
-	-- 		lualine_a = {
-	-- 			"filename",
-	-- 		},
-	-- 		lualine_b = {},
-	-- 		lualine_c = {},
-	-- 		lualine_x = {},
-	-- 		lualine_y = {},
-	-- 		lualine_z = {},
-	-- 	},
-	-- 	tabline = {},
-	-- 	extensions = { "nvim-tree" },
 })
 end

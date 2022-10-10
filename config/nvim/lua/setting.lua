@@ -21,22 +21,6 @@ return function()
 		foldsep = "│",
 		foldclose = "▸",
 	}
-	vim.opt.wildignore = {
-		"*.aux,*.out,*.toc",
-		"*.o,*.obj,*.dll,*.jar,*.pyc,__pycache__,*.rbc,*.class",
-		-- media
-		"*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp",
-		"*.avi,*.m4a,*.mp3,*.oga,*.ogg,*.wav,*.webm",
-		"*.eot,*.otf,*.ttf,*.woff",
-		"*.doc,*.pdf",
-		-- archives
-		"*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz",
-		-- temp/system
-		"*.*~,*~ ",
-		"*.swp,.lock,.DS_Store,._*,tags.lock",
-		-- version control
-		".git,.svn",
-	}
 	vim.opt.formatoptions = {
 		["1"] = true,
 		["2"] = true, -- Use indent from 2nd line of a paragraph
@@ -60,7 +44,7 @@ return function()
 	}
 	local default_options = {
 		backup = false, -- creates a backup file
-		clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+		-- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 		colorcolumn = "99999", -- fixes indentline for now
 		completeopt = { "menuone", "noselect" },
 		fileencoding = "utf-8", -- the encoding written to a file

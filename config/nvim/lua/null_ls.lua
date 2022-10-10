@@ -8,5 +8,4 @@ return function()
 			null_ls.builtins.formatting.clang_format,
 		},
 	})
-	-- require("lspconfig")["null-ls"].setup(null)
 end

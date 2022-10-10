@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-	local actions = require("telescope.actions")
 	local telescope = require("telescope")
 	telescope.setup({
 		defaults = {
@@ -56,7 +55,6 @@ function M.setup()
 	})
 
 	telescope.load_extension("fzf")
-	telescope.load_extension("neoclip")
 end
 
 return M
