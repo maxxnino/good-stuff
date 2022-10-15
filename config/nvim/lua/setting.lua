@@ -1,5 +1,5 @@
 return function()
-	vim.g.did_load_filetypes = 1
+	-- vim.g.did_load_filetypes = 1
 	vim.opt.shada = "!,'0,f0,<50,s10,h"
 	vim.opt.wrapscan = true -- Searches wrap around the end of the file
 	vim.wo.foldmethod = "expr"

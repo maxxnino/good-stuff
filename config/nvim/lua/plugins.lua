@@ -85,10 +85,10 @@ return {
             require("nvim-autopairs").setup({})
         end,
     },
-    {
-        "nathom/filetype.nvim",
-        config = require("file_type"),
-    },
+    -- {
+    --     "nathom/filetype.nvim",
+    --     config = require("file_type"),
+    -- },
     {
         "akinsho/toggleterm.nvim",
         config = function () require("toggleterm").setup{ open_mapping = [[<c-t>]] } end
