@@ -1,6 +1,5 @@
 
 return function()
-    require("mason").setup()
     local cmp_lsp = require("cmp_nvim_lsp")
     local lspconfig = require("lspconfig")
 
@@ -33,7 +32,7 @@ return function()
     }
 
     for _, server_name in pairs(servers) do
-        local opts = { capabilities = cmp_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities()) }
+        local opts = { capabilities = cmp_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities()) }
         if extend_lsp[server_name] then
             extend_lsp[server_name](opts)
         end

@@ -2,11 +2,13 @@ return function()
 	local generic_opts_any = { noremap = true, silent = true }
     -- better copy and paste
 	vim.keymap.set({ "x" }, "<Space>p", "\"_dP", generic_opts_any)
+
+	vim.keymap.set({ "v" }, "<Space>y", "\"+y", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>y", "\"+y", generic_opts_any)
-	vim.keymap.set({ "s" }, "<Space>y", "\"+y", generic_opts_any)
-	vim.keymap.set({ "n" }, "<Space>Y", "\"+Y", {noremap = false, silent = true})
+	vim.keymap.set({ "n" }, "<Space>Y", "\"+Y", {noremap = false})
+
 	vim.keymap.set({ "n" }, "<Space>d", "\"_d", generic_opts_any)
-	vim.keymap.set({ "s" }, "<Space>d", "\"_d", generic_opts_any)
+	vim.keymap.set({ "v" }, "<Space>d", "\"_d", generic_opts_any)
 
 	vim.keymap.set({ "i" }, "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", generic_opts_any)
 
