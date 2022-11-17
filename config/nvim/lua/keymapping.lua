@@ -29,7 +29,7 @@ return function()
 	-- Lsp
 	vim.keymap.set({ "n" }, "<Space>lr", ":Telescope lsp_references<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "<Space>le", ":Telescope diagnostics bufrn=0<cr>", generic_opts_any)
-	vim.keymap.set({ "n" }, "<Space>lf", ":lua vim.lsp.buf.formatting()<cr>", generic_opts_any)
+	vim.keymap.set({ "n" }, "<Space>lf", ":lua vim.lsp.buf.format{async = true}<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "K", ":lua vim.lsp.buf.hover()<cr>", generic_opts_any)
 	vim.keymap.set({ "n" }, "gd", ":lua vim.lsp.buf.definition()<cr>", generic_opts_any)
 	vim.keymap.set(
