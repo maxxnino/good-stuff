@@ -1,11 +1,15 @@
-UXI = {}
-local fn = vim.fn
-DATA = fn.stdpath("data")
-CONFIG = fn.stdpath("config")
-CACHE = fn.stdpath("cache")
-pcall(require, "impatient")
-require("setting")()
-local loader = require("plugin_loader")
-local plugins = require("plugins")
-loader.init(plugins)
-require("keymapping")()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+require("setting")
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
+require("keymapping")
