@@ -18,6 +18,9 @@ $links.PowerShell = @(
   "$config_dir\PowerShell\Microsoft.PowerShell_profile.ps1"
 )
 
+#yt-dlp
+$links.ytdlp = @("$roaming\yt-dlp", "$config_dir\yt-dlp")
+
 $stepCounter = 0
 foreach ( $k in $links.Keys ) {
   $pair = $links[$k]
