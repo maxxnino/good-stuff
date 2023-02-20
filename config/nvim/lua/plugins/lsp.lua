@@ -19,14 +19,27 @@ return {
             -- Snippets
             { 'L3MON4D3/LuaSnip' }, -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
-        }
+        },
+        config = function()
+            local lsp = require('lsp-zero').preset({
+                name = 'minimal',
+                set_lsp_keymaps = true,
+                manage_nvim_cmp = true,
+                suggest_lsp_servers = false,
+            })
+
+            -- (Optional) Configure lua language server for neovim
+            lsp.nvim_workspace()
+
+            lsp.setup()
+        end
     },
     { "jose-elias-alvarez/null-ls.nvim",
         config = function()
             local null_ls = require("null-ls")
             null_ls.setup({
                 sources = {
-                    null_ls.builtins.formatting.stylua,
+                    -- null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.prettierd,
                     null_ls.builtins.formatting.yapf,
                     null_ls.builtins.formatting.clang_format,
