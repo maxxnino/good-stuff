@@ -21,14 +21,15 @@ vim.keymap.set({ "n" }, "<Space>bc", ":BufferCloseAllButCurrent<cr>", generic_op
 vim.keymap.set({ "n" }, "<Space>w", ":w<cr>", generic_opts_any)
 
 --Telescope
-vim.keymap.set({ "n" }, "<Space>e", ":NvimTreeToggle<cr>", generic_opts_any)
-vim.keymap.set({ "n" }, "<Space>sf", ":Telescope find_files<cr>", generic_opts_any)
-vim.keymap.set({ "n" }, "<Space>st", ":Telescope live_grep<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>e", ":NvimTreeToggle<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>sf", ":Telescope find_files<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>st", ":Telescope live_grep<cr>", generic_opts_any)
 
 -- Lsp
-vim.keymap.set({ "n" }, "<Space>lr", ":Telescope lsp_references<cr>", generic_opts_any)
-vim.keymap.set({ "n" }, "<Space>le", ":Telescope diagnostics bufrn=0<cr>", generic_opts_any)
-vim.keymap.set({ "n" }, "<Space>lf", ":LspZeroFormat<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>lr", ":Telescope lsp_references<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>le", ":Telescope diagnostics bufrn=0<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>ls", ":Telescope lsp_document_symbols bufrn=0<cr>", generic_opts_any)
+vim.keymap.set("n", "<Space>lf", ":LspZeroFormat<cr>", generic_opts_any)
 
 -- Surround selection with anything
 vim.keymap.set({ "n" }, '<Space>"', [[ciw"<c-r>""<esc>]], generic_opts_any)

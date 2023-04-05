@@ -1,7 +1,9 @@
 return {
     { "Mofiqul/vscode.nvim",
         config = function()
-            require('vscode').setup({ italic_comments = true })
+            local vscode = require('vscode')
+            vscode.setup{ italic_comments = true }
+            vscode.load()
         end,
     },
     {

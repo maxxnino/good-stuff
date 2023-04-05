@@ -106,6 +106,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 0
+opt.cmdheight = 0
 opt.list = true -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
@@ -135,8 +136,8 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
-opt.splitkeep = "screen"
-opt.shortmess:append { C = true }
+-- opt.splitkeep = "screen"
+-- opt.shortmess:append { C = true }
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
